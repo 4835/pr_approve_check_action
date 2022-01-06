@@ -22,6 +22,10 @@ async function apporvalCheck() {
     const approvingReviewers = Object.values(reviews).filter(review => review.state === "APPROVED").map(review => review.user.login);
     const uniqueApprovingReviewers = [...new Set(approvingReviewers)];
 
+    core.info(uniqueApprovingReviewers);
+    
+    core.info(minApproval);
+    
     if (uniqueApprovingReviewers.length >= minApproval) {
       core.info("number of approval success")
     }else{
