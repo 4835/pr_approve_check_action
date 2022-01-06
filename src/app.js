@@ -18,8 +18,11 @@ async function apporvalCheck() {
       ...github.context.repo,
       pull_number,
     });
+    
+    const approvingReviewers = reviews.filter(review => review.state === "APPROVED").map(review => review.user.login);
+    const uniqueApprovingReviewers = [...new Set(approvingReviewers)];
 
-    if (reviews.data.length >= minApproval) {
+    if (uniqueApprovingReviewers.length >= minApproval) {
       core.info("number of approval success")
     }else{
       core.setFailed("number of approve number lack !")
