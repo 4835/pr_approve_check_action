@@ -18,8 +18,8 @@ async function apporvalCheck() {
       ...github.context.repo,
       pull_number,
     });
-    
-    const approvingReviewers = reviews.filter(review => review.state === "APPROVED").map(review => review.user.login);
+
+    const approvingReviewers = Object.values(reviews).filter(review => review.state === "APPROVED").map(review => review.user.login);
     const uniqueApprovingReviewers = [...new Set(approvingReviewers)];
 
     if (uniqueApprovingReviewers.length >= minApproval) {
