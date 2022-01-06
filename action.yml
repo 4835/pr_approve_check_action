@@ -1,0 +1,16 @@
+name: "Check PR approve number"
+description: "Check auto merge is available"
+inputs:
+  min-approval:
+    description: number of approve
+    required: false
+    default: 1
+  github-token:
+    description: GitHub Webhook Secret token
+    required: true
+runs:
+  using: "node14"
+  main: "src/app.js"
+branding:
+  icon: 'anchor'
+  color: 'red'

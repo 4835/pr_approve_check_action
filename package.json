@@ -1,0 +1,25 @@
+{
+  "name": "pr_approve_check_action",
+  "version": "1.0.0",
+  "description": "check the number of approve is valid",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4835/pr_approve_check_action.git"
+  },
+  "keywords": [],
+  "author": "hoon3",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/4835/pr_approve_check_action/issues"
+  },
+  "homepage": "https://github.com/4835/pr_approve_check_action#readme",
+  "devDependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0",
+    "actions-toolkit": "^6.0.1"
+  }
+}
