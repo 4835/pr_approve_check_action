@@ -14,13 +14,12 @@ async function apporvalCheck() {
     const ref = tools.context.ref;
     const pull_number = Number(ref.split("/")[2]);
     
-    let reviews = [];
-    reviews = await octokit.rest.pulls.listReviews({
+    let { data: reviews } = await octokit.rest.pulls.listReviews({
       ...github.context.repo,
       pull_number,
     });
 
-    core.info(reviews)
+    core.info(reviews.length)
     
     const approvingReviewers = reviews.filter(review => review.state === "APPROVED").map(review => review.user.login);
     const uniqueApprovingReviewers = [...new Set(approvingReviewers)];
