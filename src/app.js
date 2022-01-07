@@ -19,19 +19,13 @@ async function apporvalCheck() {
       pull_number,
     });
 
-    core.info(reviews.length)
-    
     const approvingReviewers = reviews.filter(review => review.state === "APPROVED").map(review => review.user.login);
     const uniqueApprovingReviewers = [...new Set(approvingReviewers)];
-    
-    core.info(uniqueApprovingReviewers);
-    
-    core.info(minApproval);
     
     if (uniqueApprovingReviewers.length >= minApproval) {
       core.info("number of approval success")
     }else{
-      core.setFailed("number of approve number lack !")
+      core.setFailed("number of approval lack !")
     }
   } catch(err) {
     core.setFailed(err.message);
