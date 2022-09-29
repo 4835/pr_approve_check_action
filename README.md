@@ -1,7 +1,6 @@
 # pr_approve_check_action
 check the number of approve is valid
 
-
 ----------------------------------------------------------------
 1. min-approval `default = 1`
   - minimum number of approval reviewer
